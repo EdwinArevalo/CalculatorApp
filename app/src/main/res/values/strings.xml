@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CalculatorApp</string>
+    <string name="app_title">Sistema de Evaluación</string>
+    <string name="app_pteoria">Prácticas Teóricas</string>
+    <string name="app_plab">Prácticas Laboratorios</string>
+    <string name="app_prom">Prom:</string>
+    <string name="app_btncalc">CALCULAR</string>
+    <string name="app_tviewpromedio">Promedio:</string>
+    <array name="sistema">
+        <item>A: 30%T + 70%L</item>
+        <item>A: 40%T + 60%L</item>
+        <item>A: 20%T + 80%L</item>
+    </array>
+</resources>
