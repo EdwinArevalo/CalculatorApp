@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     TextView promLaboratorio;
     TextView promFinal;
     TextView condicion;
+
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         promFinal = findViewById(R.id.tview_promediofinal);
         condicion = findViewById(R.id.tview_condicion);
+
+        spinner = findViewById(R.id.spinner_sistema);
+
     }
 
     public double obtenerPromTeoria(){
@@ -71,18 +77,50 @@ public class MainActivity extends AppCompatActivity {
         return promLab;
     }
 
+
+
     public void Calcular(View view) {
 
         promLaboratorio.setText("Prom: " + obtenerPromLab());
         promTeoria.setText("Prom: " + obtenerPromTeoria());
 
-        double promedioFinal = obtenerPromTeoria()*0.3 + obtenerPromLab()*0.7;
-        promFinal.setText("Promedio: " + promedioFinal);
-        if (promedioFinal > 13){
-            condicion.setText("Aprobado");
-        }else {
-            condicion.setText("Desaprobado");
-        }
-    }
+        double promedioFinal;
 
+        String sistemaEv = spinner.getSelectedItem().toString();
+
+        switch (sistemaEv){
+            case "A: 20%T + 80%L":
+                promedioFinal = obtenerPromTeoria()*0.2 + obtenerPromLab()*0.8;
+                promFinal.setText("Prom: " + promedioFinal);
+                if (promedioFinal > 13){
+                    condicion.setText("Aprobado");
+                }else {
+                    condicion.setText("Desaprobado");
+                }
+                break;
+
+            case "A: 40%T + 60%L":
+                promedioFinal = obtenerPromTeoria()*0.4 + obtenerPromLab()*0.6;
+                promFinal.setText("Prom: " + promedioFinal);
+                if (promedioFinal > 13){
+                    condicion.setText("Aprobado");
+                }else {
+                    condicion.setText("Desaprobado");
+                }
+                break;
+
+            case "A: 30%T + 70%L":
+                promedioFinal = obtenerPromTeoria()*0.3 + obtenerPromLab()*0.7;
+                promFinal.setText("Prom: " + promedioFinal);
+                if (promedioFinal > 13){
+                    condicion.setText("Aprobado");
+                }else {
+                    condicion.setText("Desaprobado");
+                }
+                break;
+        }
+
+
+
+    }
 }
